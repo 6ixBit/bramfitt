@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h1 class="result-title">TFL Bus Information</h1>
+      <h1 class="result-title">Live TFL Bus Information</h1>
     </div>
 
     <card :bus="busInfo"/>

@@ -4,36 +4,24 @@
       <thead>
         <tr>
           <th class="table-header">Timestamp</th>
-          <th class="table-header">Author</th>
-          <th class="table-header">Views</th>
-          <th class="table-header">uh huh</th>
-          <th class="table-header">status</th>
+          <th class="table-header">Numb Plate</th>
+          <th class="table-header">Bus ID</th>
+          <th class="table-header">Station</th>
+          <th class="table-header">Destination</th>
         </tr>
       </thead>
 
       <tbody>
-        <tr class="table-row">
-          <td>Intro to CSS</td>
-          <td>Adam</td>
-          <td>858</td>
-          <td>low</td>
-          <td>high</td>
+        <tr class="table-row" v-for="row in data" v-bind:key="row.id">
+          <td>{{row.timestamp}}</td>
+          <td>{{row.vehicle_num_plate}}</td>
+          <td>{{row.line_name}}</td>
+          <td>{{row.station_name}}</td>
+          <td>{{row.destination_name}}</td>
         </tr>
-
-        <tr class="table-row">
-          <td>
-            A Long Tour
-          </td>
-          <td>Adam</td>
-          <td>112</td>
-          <td>low</td>
-          <td>high</td>
-        </tr>
-
       </tbody>
     </table>
 
-    {{data}}
   </div>
 </template>
 
