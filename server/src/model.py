@@ -8,8 +8,9 @@ collection = db["buses"]
 def insert_records(records: list):
     try:
         for record in records:
+            del record['_id']
             rcd = collection.insert_one(record)
-            print("Records succesfully inserted")
+        print("Records succesfully inserted")
     except:
         print("Failed to insert records")
 

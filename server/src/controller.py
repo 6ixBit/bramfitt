@@ -15,10 +15,12 @@ def fetch_bus_times(url=API_URL):
         for value in req.json(): 
             list_of_bus_times.append(prepare_response(value))
 
-        # insert_records(list_of_bus_times)
+        insert_records(list_of_bus_times)
         return jsonify(list_of_bus_times)
     except:
         return jsonify({"error": "Failed to reach TFL API"})
+
+    
 
 def prepare_response(api_request: dict) -> dict: 
     result = {}
