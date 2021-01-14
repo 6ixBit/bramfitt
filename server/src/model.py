@@ -1,21 +1,27 @@
 from pymongo import MongoClient
+from flask import jsonify
 
-client = MongoClient('mongodb://root:password@mongo:27017/')
-db = client.tfl_buses
+client = MongoClient("mongodb+srv://admin:bramfitt@cluster0.sz4ej.mongodb.net/tfl_db?retryWrites=true&w=majority")
+db = client["tfl_db"]
+collection = db["buses"]
 
-def test_db():
-    print("DB connection established...")
-
+def insert_records(records: list):
     try:
-        db.list_database_names()
+        for record in records:
+            rcd = collection.insert_one(record)
+            print("Records succesfully inserted")
     except:
-        print("Failed to list database names")
-    
-    
+        print("Failed to insert records")
 
-def insert_record():
-    #TODO: loop over array of objs returned from controller and insert to db one by one.
-    pass
+def get_all_records():
+    records = collection.find({})
 
-def get_records():
-    pass
+    result = []
+    for record in records:
+        del record['_id']
+        result.append(record)
+    
+    return jsonify(result)
+
+
+    
