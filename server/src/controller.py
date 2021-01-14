@@ -1,6 +1,8 @@
 import requests
 from datetime import datetime
 from flask import jsonify
+import dateutil.parser
+import json
 
 from src.model import insert_records
 
@@ -20,24 +22,24 @@ def fetch_bus_times(url=API_URL):
     except:
         return jsonify({"error": "Failed to reach TFL API"})
 
-    
-
 def prepare_response(api_request: dict) -> dict: 
     result = {}
 
-    try: #TODO: Parse ISO8601 timestamps received to human readable format
-        result["timestamp"] = api_request["timestamp"]
+    try: 
+        result["timestamp"] = parse_time(api_request["timestamp"])
         result["vehicle_num_plate"] = api_request["vehicleId"]
         result["station_name"] = api_request["stationName"]
         result["line_name"] = api_request["lineName"]
         result["bus_direction"] = api_request["direction"]
-        result["mode_name"] = api_request["modeName"]
         result["destination_name"] = api_request["destinationName"]
         result["towards"] = api_request["towards"]
-        result["expected_arrival"] = api_request["expectedArrival"]
+        result["expected_arrival"] = parse_time(api_request["expectedArrival"])
     except:
         result["error"] = "Failed to parse API response"
 
     return result
 
+def parse_time(time: str):
+    parsed = dateutil.parser.parse(time)
+    return parsed.strftime("%H:%M:%S")
 

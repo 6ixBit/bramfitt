@@ -20,7 +20,7 @@ export default {
       busInfo: []
     }
   },
-  components: { // TODO: pass BusInfo as prop to card...
+  components: {
     card
   },
   methods: {
