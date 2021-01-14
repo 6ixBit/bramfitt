@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 .container {
-    @apply mx-2 w-full my-8 flex justify-center justify-self-center;
+    @apply mx-2 w-full my-8 flex justify-center justify-self-center items-center;
 }
 
 .table-header {

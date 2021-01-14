@@ -1,7 +1,6 @@
 import unittest
 
 from .controller import parse_time, fetch_bus_times
-from .model import get_all_records
 
 class TestServer(unittest.TestCase):
     def test_parse_time_is_valid(self):
@@ -11,10 +10,6 @@ class TestServer(unittest.TestCase):
 
     def test_fetch_bus_times(self):
         actual = fetch_bus_times()
-        self.assertEqual(type(actual), list)
-
-    def test_get_all_records(self):
-        actual = get_all_records()
         self.assertEqual(type(actual), list)
 
 if __name__ == '__main__':
