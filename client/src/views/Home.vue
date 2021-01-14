@@ -4,7 +4,7 @@
       <h1 class="result-title">TFL Bus Information</h1>
     </div>
 
-    <card />
+    <card :bus="busInfo"/>
 
   </div>
 </template>
@@ -20,13 +20,13 @@ export default {
       busInfo: []
     }
   },
-  components: {
+  components: { // TODO: pass BusInfo as prop to card...
     card
   },
   methods: {
     async getBusInfo() {
       try {
-        let res = await axios.get("localhost:5000/api")
+        let res = await axios.get("http://localhost:5000/api")
 
         this.busInfo = res.data
       } catch (e) {
@@ -35,7 +35,7 @@ export default {
     }
   },
   async mounted() {
-    // Call getBusInfo()
+    this.getBusInfo()
   }
 }
 </script>

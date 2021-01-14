@@ -8,6 +8,7 @@
                money got longer, cars got faster turned to a savage.
            </p>
         </div>
+        {{bus}}
     </div>
 </template>
 

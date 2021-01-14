@@ -4,7 +4,7 @@
       Historical API Calls
     </h1>
 
-    <Table />
+    <Table :data="results"/>
     
   </div>
 </template>
@@ -35,8 +35,7 @@ export default {
       }
     },
     async mounted() {
-    // Call getResults()
-
+      this.getResults()
     }
 }
 </script>

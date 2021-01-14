@@ -32,6 +32,8 @@
 
       </tbody>
     </table>
+
+    {{data}}
   </div>
 </template>
 

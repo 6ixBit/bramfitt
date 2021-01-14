@@ -1,4 +1,6 @@
-#!/Users/hamzacarew/Desktop/bram/venv/bin/python3.8
+#!/bin/sh
+'''exec' "/Users/hamzacarew/Desktop/Take home/bramfitt/server/venv/bin/python3.8" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
