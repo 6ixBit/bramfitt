@@ -11,7 +11,7 @@
 
 # Server Tests
 
-- run python -m unittest
+- run python3 -m unittest
 
 # Imporvements
 
