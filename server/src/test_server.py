@@ -1,16 +1,17 @@
 import unittest
 
-from .controller import parse_time, fetch_bus_times
+from . import app
 
-class TestServer(unittest.TestCase):
-    def test_parse_time_is_valid(self):
-        actual = parse_time("2018-01-02T22:08:12.510696")
-        expected = "22:08:12"
-        self.assertEqual(actual, expected)
-
-    def test_fetch_bus_times(self):
-        actual = fetch_bus_times()
-        self.assertEqual(type(actual), list)
+class TestServerRoutes(unittest.TestCase):
+    def test_api_rout(self):
+        tester = app.test_client(self)
+        res = tester.get("/api", content_type='application/json')
+        self.assertEqual(res.status_code, 200)
+       
+    def test_db_route(self):
+        tester = app.test_client(self)
+        res = tester.get("/db", content_type='application/json')
+        self.assertEqual(res.status_code, 200)
 
 if __name__ == '__main__':
     unittest.main()
