@@ -17,4 +17,4 @@
 
 - Could store API URL and DB URI in config file so it can be read from environment
 - Write more tests for lower level functions
-- Fix table alignment on history page on certain devices
+- Fix table alignment on history page on certain mid sized devices
